@@ -6,6 +6,15 @@
     android:weightSum="1">
 
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2012 Election"
+        android:id="@+id/pastElection"
+        android:paddingTop="30dp"
+        android:paddingLeft="60dp"
+       />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="114dp"

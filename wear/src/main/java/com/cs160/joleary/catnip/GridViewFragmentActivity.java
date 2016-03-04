@@ -66,7 +66,7 @@ public class GridViewFragmentActivity extends FragmentGridPagerAdapter {
 //            Log.e("k", k + "");
             String name = names.get(zipcode)[k];
             int idCurr = id.get(name);
-            String partyCurr = party.get(id);
+            String partyCurr = party.get(idCurr);
 //            Log.e("id", idCurr + "");
 //            Log.e("party: ", partyCurr);
             PAGES.add(new Page(name, partyCurr));
@@ -89,8 +89,8 @@ public class GridViewFragmentActivity extends FragmentGridPagerAdapter {
         String party;
         int cardGravity = Gravity.CENTER;
         boolean expansionEnabled = false;
-        float expansionFactor = 1.0f;
-        int expansionDirection = CardFragment.EXPAND_DOWN;
+        float expansionFactor = 2.0f;
+        int expansionDirection = CardFragment.EXPAND_UP;
 
         Page(String name, String party) {
             this.name = name;
@@ -98,9 +98,9 @@ public class GridViewFragmentActivity extends FragmentGridPagerAdapter {
         }
     }
 
-    public static class ExampleFragment extends Fragment {
+    public static class ExampleFragment extends CardFragment {
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+        public View onCreateContentView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             // Inflate the layout for this fragment
             return inflater.inflate(R.layout.fragment_mine, container, false);
@@ -114,12 +114,17 @@ public class GridViewFragmentActivity extends FragmentGridPagerAdapter {
         String name = page.name;
         String party = page.party;
 //        Log.e("party", name);
-        CardFragment fragment = CardFragment.create("Thing", party);
+        ExampleFragment fragment = new ExampleFragment();
+        Bundle args = new Bundle();
+
+        args.putCharSequence("CardFragment_title", name);
+        args.putCharSequence("CardFragment_text", party);
+        fragment.setArguments(args);
 
         // Advanced settings (card gravity, card expansion/scrolling)
         fragment.setCardGravity(Gravity.BOTTOM);
         fragment.setExpansionEnabled(true);
-        fragment.setExpansionDirection(CardFragment.EXPAND_DOWN);
+        fragment.setExpansionDirection(CardFragment.EXPAND_UP);
         fragment.setExpansionFactor(page.expansionFactor);
         return fragment;
     }

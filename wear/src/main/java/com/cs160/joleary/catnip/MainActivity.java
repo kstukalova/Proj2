@@ -18,6 +18,7 @@ public class MainActivity extends FragmentActivity {
 
     private TextView mTextView;
     private Button mFeedBtn;
+    private Button past;
     private String zipcode;
 
     @Override
@@ -26,18 +27,26 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         Log.e("RUNNING ONCREATE", "yes");
 //        mFeedBtn = (Button) findViewById(R.id.feed_btn);
+        past = (Button) findViewById(R.id.pastElection);
 
+        past.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendIntent = new Intent(getBaseContext(), Presidential.class);
+                sendIntent.putExtra("zipcode", zipcode);
+                startService(sendIntent);
+            }
+        });
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
 
         if (extras != null) {
             zipcode = extras.getString("zipcode");
         }
+
         Log.e("zipcod before adapter: ", "null" + zipcode);
-        if (zipcode != null) {
             final GridViewPager pager = (GridViewPager) findViewById(R.id.pager);
             pager.setAdapter(new GridViewFragmentActivity(this, getFragmentManager(), zipcode));
-        }
 //        mFeedBtn.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
