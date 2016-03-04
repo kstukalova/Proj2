@@ -33,14 +33,14 @@ public class MainActivity extends FragmentActivity {
 //        mFeedBtn = (Button) findViewById(R.id.feed_btn);
         past = (Button) findViewById(R.id.pastElection);
 
-        past.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent sendIntent = new Intent(getBaseContext(), Presidential.class);
-                sendIntent.putExtra("zipcode", zipcode);
-                startService(sendIntent);
-            }
-        });
+//        past.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent sendIntent = new Intent(getBaseContext(), Presidential.class);
+//                sendIntent.putExtra("zipcode", zipcode);
+//                startService(sendIntent);
+//            }
+//        });
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
 

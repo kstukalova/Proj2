@@ -49,13 +49,11 @@ public class PhoneToWatchService extends Service {
         // which was passed over when we called startService
         Bundle extras = intent.getExtras();
         final String zip = extras.getString("zipcode");
-//        final Service _this = this;
 
         // Send the message with the cat name
         new Thread(new Runnable() {
             @Override
             public void run() {
-//                _this.stopSelf();
                 //first, connect to the apiclient
                 mApiClient.connect();
                 //now that you're connected, send a massage with the cat name
