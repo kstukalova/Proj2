@@ -34,8 +34,10 @@ public class MainActivity extends FragmentActivity {
             zipcode = extras.getString("zipcode");
         }
         Log.e("zipcod before adapter: ", "null" + zipcode);
-        final GridViewPager pager = (GridViewPager) findViewById(R.id.pager);
-        pager.setAdapter(new GridViewFragmentActivity(this, getFragmentManager(), zipcode));
+        if (zipcode != null) {
+            final GridViewPager pager = (GridViewPager) findViewById(R.id.pager);
+            pager.setAdapter(new GridViewFragmentActivity(this, getFragmentManager(), zipcode));
+        }
 //        mFeedBtn.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
