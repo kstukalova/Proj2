@@ -21,12 +21,17 @@ public class WatchListenerService extends WearableListenerService {
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
         Log.d("T", "in WatchListenerService, got: " + messageEvent.getPath());
+        String zipcode = new String(messageEvent.getData(), StandardCharsets.UTF_8);
+        if (zipcode == null) {
+            return;
+        }
         //use the 'path' field in sendmessage to differentiate use cases
         //(here, fred vs lexy)
         String value = new String(messageEvent.getData(), StandardCharsets.UTF_8);
         Intent intent = new Intent(this, MainActivity.class );
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("zipcode", new String(messageEvent.getData(), StandardCharsets.UTF_8));
+        Log.d("zip : ", new String(messageEvent.getData(), StandardCharsets.UTF_8));
         Log.d("T", "about to start watch MainActivity with CAT_NAME: Fred");
         startActivity(intent);
 //        if( messageEvent.getPath().equalsIgnoreCase( FRED_FEED ) ) {

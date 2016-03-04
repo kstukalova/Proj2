@@ -61,12 +61,14 @@ public class GridViewFragmentActivity extends FragmentGridPagerAdapter {
         party.put(5, "Democrat");
         party.put(6, "Democrat");
         party.put(7, "Democrat");
-        Log.e("zip: ", zipcode + "OH NO NOTHING");
+        Log.e("zipcode fakedata: ", zipcode + "OH NO NOTHING");
         for (int k = 0; k < names.get(zipcode).length; k++) {
-            Log.e("k", k + "");
+//            Log.e("k", k + "");
             String name = names.get(zipcode)[k];
             int idCurr = id.get(name);
             String partyCurr = party.get(id);
+//            Log.e("id", idCurr + "");
+//            Log.e("party: ", partyCurr);
             PAGES.add(new Page(name, partyCurr));
         }
     }
@@ -74,10 +76,11 @@ public class GridViewFragmentActivity extends FragmentGridPagerAdapter {
     GridViewFragmentActivity(Context ctx, FragmentManager fm, String zipcode) {
         super(fm);
         this.zipcode = zipcode;
+//        Log.e("ZIPCODE: ", zipcode);
         mContext = ctx;
         createFakeData();
-        Log.e("here", "here");
-        Log.e("people: ", PAGES.size() + "");
+//        Log.e("here", "here");
+//        Log.e("people: ", PAGES.size() + "");
     }
 
 
@@ -110,6 +113,7 @@ public class GridViewFragmentActivity extends FragmentGridPagerAdapter {
         Page page = PAGES.get(col);
         String name = page.name;
         String party = page.party;
+//        Log.e("party", name);
         CardFragment fragment = CardFragment.create("Thing", party);
 
         // Advanced settings (card gravity, card expansion/scrolling)

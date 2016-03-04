@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.wearable.view.GridViewPager;
 import android.support.wearable.view.WatchViewStub;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowInsets;
 import android.widget.Button;
@@ -23,7 +24,7 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Log.e("RUNNING ONCREATE", "yes");
 //        mFeedBtn = (Button) findViewById(R.id.feed_btn);
 
         Intent intent = getIntent();
@@ -32,6 +33,7 @@ public class MainActivity extends FragmentActivity {
         if (extras != null) {
             zipcode = extras.getString("zipcode");
         }
+        Log.e("zipcod before adapter: ", "null" + zipcode);
         final GridViewPager pager = (GridViewPager) findViewById(R.id.pager);
         pager.setAdapter(new GridViewFragmentActivity(this, getFragmentManager(), zipcode));
 //        mFeedBtn.setOnClickListener(new View.OnClickListener() {
