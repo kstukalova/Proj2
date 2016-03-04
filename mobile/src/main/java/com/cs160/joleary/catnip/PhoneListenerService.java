@@ -33,8 +33,10 @@ private static final String TOAST = "/send_toast";
             Context context = getApplicationContext();
             int duration = Toast.LENGTH_SHORT;
 
-            Toast toast = Toast.makeText(context, value, duration);
-            toast.show();
+//            Toast toast = Toast.makeText(context, value, duration);
+//            toast.show();
+
+
 
             // so you may notice this crashes the phone because it's
             //''sending message to a Handler on a dead thread''... that's okay. but don't do this.

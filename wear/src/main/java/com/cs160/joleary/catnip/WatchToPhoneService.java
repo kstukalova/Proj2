@@ -72,6 +72,8 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
                 });
     }
 
+
+
     @Override //we need this to implement GoogleApiClient.ConnectionsCallback
     public void onConnectionSuspended(int i) {}
 

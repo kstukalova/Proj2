@@ -98,14 +98,14 @@ public class GridViewFragmentActivity extends FragmentGridPagerAdapter {
         }
     }
 
-    public static class ExampleFragment extends CardFragment {
-        @Override
-        public View onCreateContentView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            // Inflate the layout for this fragment
-            return inflater.inflate(R.layout.fragment_mine, container, false);
-        }
-    }
+//    public static class ExampleFragment extends CardFragment {
+//        @Override
+//        public View onCreateContentView(LayoutInflater inflater, ViewGroup container,
+//                                 Bundle savedInstanceState) {
+//            // Inflate the layout for this fragment
+//            return inflater.inflate(R.layout.fragment_mine, container, false);
+//        }
+//    }
 
     // Obtain the UI fragment at the specified position
     @Override
@@ -122,10 +122,10 @@ public class GridViewFragmentActivity extends FragmentGridPagerAdapter {
         fragment.setArguments(args);
 
         // Advanced settings (card gravity, card expansion/scrolling)
-        fragment.setCardGravity(Gravity.BOTTOM);
-        fragment.setExpansionEnabled(true);
-        fragment.setExpansionDirection(CardFragment.EXPAND_UP);
-        fragment.setExpansionFactor(page.expansionFactor);
+//        fragment.setCardGravity(Gravity.BOTTOM);
+//        fragment.setExpansionEnabled(true);
+//        fragment.setExpansionDirection(CardFragment.EXPAND_UP);
+//        fragment.setExpansionFactor(page.expansionFactor);
         return fragment;
     }
 
